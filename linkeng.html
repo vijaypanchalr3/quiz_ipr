@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      physics quiz
+    </title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+<script>
+  function SubForm (){
+      $.ajax({
+          url:'https://api.apispreadsheets.com/data/1991/',
+          type:'post',
+          data:$("#form").serializeArray(),
+          success: function(){
+           alert("Form Data Submitted, thank you attempting quiz.")
+          },
+          error: function(){
+            alert("There was an error, please check your internet connection or try again !")
+          }
+    });
+}
+</script>
+</head>
+
+
+<body>
+  
+  <div class="box" id="questionscreen" >
+    <div class="quiztitle"><h2>IPR quiz</h2></div>
+    <div class="mainbox">
+      <div class="score">score :	&nbsp; <span></span></div>
+      <div class="time">Time left :	&nbsp;<span></span></div>
+    </div>
+    <div class="question">
+      question 1 here !
+    </div>
+    <div class="option">
+      <span onclick="checkAnswer(this)" data-opt="1"></span>
+      <span onclick="checkAnswer(this)" data-opt="2"></span>
+      <span onclick="checkAnswer(this)" data-opt="3"></span>
+      <span onclick="checkAnswer(this)" data-opt="4"></span>
+    </div>
+    <div class="super">
+      <button id="end" onclick="end(1)">End</button>
+      <button id="next" onclick="shownext()">Next</button>
+    </div>
+    
+  
+
+  </div>
+
+  <div class="box" id="resultscreen" style="display: none;">
+    <div class="quiztitle">
+      Result
+    </div>
+    <div class="resultbox">
+      <label>Question :	&nbsp; </label>
+      <span id="totalquestion">10</span>
+      <label>Attempt :	&nbsp; </label>
+      <span id="attemptQuestion">0</span>
+      <label>Correct :	&nbsp; </label>
+      <span id="correctAns">0</span>
+      <!-- <label>wrong : </label>
+      <span id="wrongAns">0</span> -->
+      
+    </div>
+    <form id="form">
+      <label >&CircleDot; info: </label>
+      <br/>
+      <input name="full_name" placeholder="Full name"/>
+      <br/>
+      <!-- <label >&star; Email : </label> -->
+      
+      <input name="email" placeholder="your email"/>
+      <br/>
+      <!-- <label style="margin-right: 150px;">&star; Info : </label>
+      <br/> -->
+      <textarea name="info" placeholder="institute"></textarea>
+      <output name="score" id="scorewrite">huhuhu</output>
+      
+  
+
+
+
+
+
+      
+      
+
+    </form>
+    <button onclick="SubForm()" id="submit" >Submit</button>
+    
+  </div>
+  <div class="result">
+    
+
+  </div>
+  
+  <!-- <footer><p>copyright &copy; : all rights goes to IPR</p></footer> -->
+</body>
+
+<script src="js/jquery-3.5.1.min.js"></script>
+<script src="js/quizeng.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+<!-- <script src=”https://code.jquery.com/jquery-3.4.1.js" integrity=”sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=” crossorigin=”anonymous”>
+</script>
+<script>
+  function SubForm (){
+      $.ajax({
+          url:'https://api.apispreadsheets.com/data/410/',
+          type:'post',
+          data:$("#myForm").serializeArray(),
+          success: function(){
+            alert("Form Data Submitted :)")
+          },
+          error: function(){
+            alert("There was an error :(")
+          }
+      });
+  }
+  </script> -->
+
+
+
+
+
+
+
+</html>
